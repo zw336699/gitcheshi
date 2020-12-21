@@ -1,0 +1,65 @@
+<html>
+<form action="" method="post" >
+    <div class="ui-jqgrid-view ui-jqgrid">
+        <input type="hidden" name="gName" value="<{$smarty.post.gName}>"/>
+        <div class="ui-jqgrid-titlebar ui-widget-header ui-corner-top ui-helper-clearfix">
+            <a style="right: 0px;" class="ui-jqgrid-titlebar-close HeaderButton" role="link" href="javascript:void(0)">
+                <span class="ui-icon ui-icon-circle-triangle-n"></span>
+            </a>
+            <span class="ui-jqgrid-title">系统日志</span>
+        </div>
+        <div class="table-responsive">
+            <table id="sample-table-1" class="table table-striped table-bordered table-hover" style="margin-bottom:0;">
+                <thead>
+                <tr>
+                    <th > ID </th>
+                    <th>用户ID</th>
+                    <th>登录账号</th>
+                    <th>用户名</th>
+                    <th>时间戳</th>
+                    <th>登录日期</th>
+                    <th>登录IP</th>
+                    <th>访问功能</th>
+                    <th>操作</th>
+                    <th>Action</th>
+                    <th>Opt</th>
+                    <th>sql</th>
+                    <th>uKey</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <{foreach item=vo from=$data}>
+                <tr>
+                    <td class="center">
+                        <{$vo.id}>
+                    </td>
+                    <td><{$vo.uid}></td>
+                    <td><{$vo.uName}></td>
+                    <td><{$vo.uUsername}></td>
+                    <td><{$vo.doTime}></td>
+                    <td> <{$vo.doDate}></td>
+                    <td><{$vo.doIp}></td>
+                    <td><{$vo.doTitle}></td>
+                    <td><{$vo.doContent}></td>
+                    <td><{$vo.doAction}></td>
+                    <td><{$vo.doOpt}></td>
+                    <td><{$vo.doSql}></td>
+                    <td><{$vo.uKey}></td>
+
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+        </div><!-- /.table-responsive -->
+        <{include file="../foot_paper.html"}>
+    </div><!-- /span -->
+</form>
+</html>
+<script type="text/javascript">
+    jQuery(function($) {
+        $('[data-rel=tooltip]').tooltip();
+        $('[data-rel=popover]').popover({html:true});
+    });
+</script>
